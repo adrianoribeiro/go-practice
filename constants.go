@@ -2,10 +2,13 @@ package main
 
 import "fmt"
 
-const name string = "Adriano"
+const (
+	Name = "Adriano"
+	Pi   = 3.14
+)
 
 func main() {
 
-	fmt.Println(name)
-
+	fmt.Println(Name)
+	fmt.Println(Pi)
 }
