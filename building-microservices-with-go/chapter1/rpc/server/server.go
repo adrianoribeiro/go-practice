@@ -21,16 +21,16 @@ func StartServer() {
 	rpc.Register(calcHandler)
 
 	//Creating a socket using the given protocol and binding it to the IP address and port.
-	l, err := net.Listen("tcp", fmt.Sprintf(":%v", port))
+	listen, err := net.Listen("tcp", fmt.Sprintf(":%v", port))
 	if err != nil {
 		//The Fatal functions call os.Exit(1) after writing the log message
 		log.Fatal(fmt.Sprintf("Unable to listen on given port: %s", port))
 	}
-	defer l.Close()
+	defer listen.Close()
 
 	for {
 		// Accept waits for and returns the next connection to the listener.
-		conn, _ := l.Accept()
+		conn, _ := listen.Accept()
 		go rpc.ServeConn(conn)
 	}
 }
