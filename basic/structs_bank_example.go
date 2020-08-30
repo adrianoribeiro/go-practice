@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-practice/account"
+	"go-practice/basic/account"
 )
 
 func main() {
