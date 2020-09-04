@@ -21,7 +21,7 @@ func GetUser(respWriter http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	user, err := services.GetUser(userID)
+	user, err := services.UsersService.GetUser(userID)
 
 	if err != nil {
 		respWriter.WriteHeader(http.StatusNotFound)
