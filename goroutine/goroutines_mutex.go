@@ -7,8 +7,8 @@ import (
 )
 
 var (
-	counter int
-	wg      sync.WaitGroup
+	counterMutex int
+	wgMutex      sync.WaitGroup
 	mutex   sync.Mutex
 )
 
@@ -24,7 +24,7 @@ func main() {
 	fmt.Println("Final counter: ", counter)
 }
 
-func incCounter(id int) {
+func incCounterMutex(id int) {
 
 	defer wg.Done()
 

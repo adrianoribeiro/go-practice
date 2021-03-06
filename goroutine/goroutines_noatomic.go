@@ -7,34 +7,34 @@ import (
 )
 
 var (
-	counter int
-	wg      sync.WaitGroup
+	counterNA int
+	wgNA      sync.WaitGroup
 )
 
 func main() {
 
-	wg.Add(2)
+	wgNA.Add(2)
 
-	go incCounter(1)
-	go incCounter(2)
+	go incCounterNA(1)
+	go incCounterNA(2)
 
-	wg.Wait()
+	wgNA.Wait()
 	fmt.Println("Final counter: ", counter)
 }
 
-func incCounter(id int) {
+func incCounterNA(id int) {
 
-	defer wg.Done()
+	defer wgNA.Done()
 
 	for count := 0; count < 2; count++ {
 
-		value := counter
+		value := counterNA
 
 		runtime.Gosched()
 
 		value++
 
-		counter = value
+		counterNA = value
 		// fmt.Printf("Temporary counter (%v): %v\n", id, counter)
 	}
 }
